@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <h1>Produtos</h1>
+    </div>
+
+    <div class="p-col-12 p-fluid">
+      <label>Mercado Alvo</label>
+      <input type="text" pInputText />
+    </div>
+
+    <div class="p-col-12 p-fluid">
+      <label>Tecnologia</label>
+      <input type="text" pInputText />
+    </div>
+
+    <div class="p-col-12">
+      <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right"></button>
+    </div>
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-table [value]="produtos" styleClass="p-datatable-gridlines p-datatable-striped" [paginator]="true" [rows]="5"
+      [responsive]=true>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Mercado Alvo</th>
+            <th>Tecnologia</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-produto>
+          <tr>
+            <td>
+              <span class="p-column-title" >Nome</span>
+              {{ produto.nome }}
+            </td>
+            <td>
+              <span class="p-column-title">Descrição</span>
+              {{ produto.descricao }}
+            </td>
+            <td>
+              <span class="p-column-title">Mercado</span>
+              {{ produto.mercadoAlvo }}
+            </td>
+            <td>
+              <span class="p-column-title">Tecnologia</span>
+              {{ produto.tecnologia }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
