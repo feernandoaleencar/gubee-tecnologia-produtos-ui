@@ -15,7 +15,30 @@
     </div>
 
     <div class="p-col-12">
-      <button pButton type="submit" label="Pesquisar"></button>
+      <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right"></button>
+    </div>
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-table [value]="produtos" styleClass="p-datatable-gridlines p-datatable-striped" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th >Mercado Alvo</th>
+            <th >Tecnologia</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-produto>
+          <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td >{{ produto.mercadoAlvo }}</td>
+            <td >{{ produto.tecnologia }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
   </div>
 </div>
