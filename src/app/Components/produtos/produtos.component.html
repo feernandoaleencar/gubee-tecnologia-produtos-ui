@@ -3,20 +3,35 @@
     <div class="p-col-12">
       <h1>Produtos</h1>
     </div>
+    <br>
+
 
     <div class="p-col-12 p-fluid">
       <label>Mercado Alvo</label>
-      <input type="text" pInputText />
     </div>
+    <br>
+    <form autocomplete="off">
+    <div *ngFor="let category of categories" class="p-field-checkbox" style="display: inline-block; margin-right: 5px; margin-bottom: 20px;">
+        <p-checkbox name="group2" style="" value="category" [value]="category"  [(ngModel)]="selectedCategories" [inputId]="category.key"></p-checkbox>
+        <label [for]="category.key">{{category.name}}</label>
+    </div>
+      <br>
+      <div class="p-col-12">
+        <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right"></button>
+      </div>
+    </form>
+    <br>
 
+    <br>
     <div class="p-col-12 p-fluid">
       <label>Tecnologia</label>
-      <input type="text" pInputText />
     </div>
-
+    <br>
     <div class="p-col-12">
-      <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right"></button>
+      <input type="text" pInputText style="width: 300px;"/>
+      <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right" style="margin-left: 5px;"></button>
     </div>
+    <br>
   </div>
 
   <div class="p-grid">

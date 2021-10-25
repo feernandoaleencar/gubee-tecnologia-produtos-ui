@@ -1,3 +1,4 @@
+import { ProdutoService } from './Services/produto.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,8 +8,10 @@ import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { ProdutosComponent } from './produtos/produtos.component';
-
+import { ProdutosComponent } from './Components/produtos/produtos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CheckboxModule } from 'primeng/checkbox';
+import { FormsModule }    from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,12 @@ import { ProdutosComponent } from './produtos/produtos.component';
     AppRoutingModule,
     InputTextModule,
     ButtonModule,
-    TableModule
-
+    TableModule,
+    HttpClientModule,
+    CheckboxModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ProdutoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
