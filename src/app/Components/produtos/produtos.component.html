@@ -4,16 +4,15 @@
       <h1>Produtos</h1>
     </div>
     <br>
-
-
     <div class="p-col-12 p-fluid">
       <label>Mercado Alvo</label>
     </div>
     <br>
-    <form autocomplete="off">
-    <div *ngFor="let category of categories" class="p-field-checkbox" style="display: inline-block; margin-right: 5px; margin-bottom: 20px;">
-        <p-checkbox name="group2" style="" value="category" [value]="category"  [(ngModel)]="selectedCategories" [inputId]="category.key"></p-checkbox>
-        <label [for]="category.key">{{category.name}}</label>
+    <form autocomplete="off" (click) = "listar()">
+    <div *ngFor="let mercado of mercadosAlvo" class="p-field-checkbox" style="display: inline-block; margin-right: 5px; margin-bottom: 20px;">
+
+        <p-checkbox name="mercadoAlvo" value="mercado" [inputId]="mercado.id"></p-checkbox>
+        <label [for]="mercado.nome"> {{mercado.nome}} </label>
     </div>
       <br>
       <div class="p-col-12">
@@ -27,10 +26,17 @@
       <label>Tecnologia</label>
     </div>
     <br>
-    <div class="p-col-12">
-      <input type="text" pInputText style="width: 300px;"/>
-      <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right" style="margin-left: 5px;"></button>
-    </div>
+    <form autocomplete="off" (click) = "listar()">
+      <div *ngFor="let tech of tecnologias" class="p-field-checkbox" style="display: inline-block; margin-right: 5px; margin-bottom: 20px;">
+
+          <p-checkbox name="tecnologia" value="tech" [inputId]="tech.id"></p-checkbox>
+          <label [for]="tech.nome"> {{tech.nome}} </label>
+      </div>
+        <br>
+        <div class="p-col-12">
+          <button pButton type="submit"  label="Pesquisar" icon="pi pi-search" iconPos="right"></button>
+        </div>
+      </form>
     <br>
   </div>
 

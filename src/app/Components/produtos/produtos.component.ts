@@ -8,38 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutosComponent implements OnInit {
 
-  produtos = [
-    {
-        "nome": "Gubee Integrador - teste",
-        "descricao": "Ferramenta de integração para marketplaces",
-        "mercadoAlvo": {
-            "1": "Ecommerce",
-            "2": "ERP",
-            "3": "Lojista que não desejam possuir ecommerce"
-        },
-        "tecnologia": [
-            "Java 11",
-            "Kotlin",
-            "Kafka"
-        ]
-    }]
+  produtos = []
 
-  selectedCities: string[] = [];
+  loading: boolean = true;
 
-  selectedCategories: any[] = ['Technology', 'Sports'];
+  selecionarTecnologias: any[] = [];
 
-  categories: any[] = [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}];
+  tecnologias: any[] = [];
+
+  mercadosAlvo: any[] = [];
 
   constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(){
     this.listar();
 
-    this.selectedCategories = this.categories.slice(1,3);
+    this.listarTecnologias();
+
+    this.listarMercadoAlvo();
   }
 
   listar(){
     this.produtoService.listar()
       .then(produtos => this.produtos = produtos);
   }
+
+  listarMercadoAlvo(){
+    this.produtoService.listarMercadoAlvo()
+       .then(mercadosAlvo => this.mercadosAlvo = mercadosAlvo);
+  }
+
+
+    listarTecnologias(){
+      this.produtoService.listarTecnologias()
+         .then(tecnologias => this.tecnologias = tecnologias);
+  }
+
+
 }
